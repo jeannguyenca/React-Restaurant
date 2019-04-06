@@ -1,6 +1,7 @@
 import React from "react"
 import Form from "../components/Form"
 import axios from "axios"
+import SingleRestaurant from "../components/SingleRestaurant"
 
 const token =
   "mVkI8cJKHAw2u_3H9vqxhfB4JhECH--tFRQwzTsnQQLYBCE4fL5T3DOwestN0YkJanJH-NWvQXxmGzbbnqC3dqc-TmxWBrNSgqPHzKUlOfurk00IxzhgNcZ3IlimXHYx"
@@ -60,6 +61,11 @@ class FormContainer extends React.Component {
     return (
       <div style={style}>
         <Form submit={this.submit} handleChange={this.handleChange} />
+        {this.state.restaurant.map(rest => {
+          return (
+            <SingleRestaurant {...props} />
+          )
+        })}
       </div>
     )
   }
